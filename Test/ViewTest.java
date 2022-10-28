@@ -1,5 +1,5 @@
 import static org.junit.Assert.*;
 
-public class BoxesTest {
+public class ViewTest {
 
 }
