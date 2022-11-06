@@ -1,3 +1,5 @@
+package Controller;
+
 public class Player {
     private String nickName = null;
 
