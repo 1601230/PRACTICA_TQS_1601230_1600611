@@ -26,8 +26,29 @@ public class Player {
         }
         else
         {
-            this.nickName = nickName;
-            return 1;
+            boolean espacios = false;
+            int i = 0;
+            while (( i < nickName.length()) && (espacios == false))
+            {
+                if(nickName.charAt(i) == ' ')
+                {
+                    espacios =  true;
+                }
+                else
+                {
+                    i = i + 1;
+                }
+            }
+
+            if (espacios == true)
+            {
+                return -1;
+            }
+            else
+            {
+                this.nickName = nickName;
+                return 1;
+            }
         }
     }
 }
