@@ -32,6 +32,7 @@ public class Player {
             {
                 if(nickName.charAt(i) == ' ')
                 {
+                    System.out.println("ERROR: Invalid nickName!!! (the nickName has spaces)");
                     espacios =  true;
                 }
                 else
