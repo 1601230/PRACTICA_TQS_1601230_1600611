@@ -7,7 +7,7 @@ import java.io.FileReader;
 
 public class DataBase {
     public static BufferedReader readFile(String pathFile) throws FileNotFoundException {
-        BufferedReader buffer;
+        BufferedReader buffer = null;
         File existFile = new File(pathFile);
 
         if (!existFile.exists())
@@ -20,10 +20,14 @@ public class DataBase {
             System.out.println("The path is empty!!\n");
             buffer = null;
         }
+        else if (existFile.isFile())
+        {
+            FileReader readFile = new FileReader(pathFile);
+            buffer = new BufferedReader(readFile);
+        }
         else
         {
-            FileReader rankingRead = new FileReader(pathFile);
-            buffer = new BufferedReader(rankingRead);
+            System.out.println("ERROR:The path is not from a file!!\n");
         }
 
         return buffer;
