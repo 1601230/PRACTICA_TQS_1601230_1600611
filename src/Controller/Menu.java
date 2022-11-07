@@ -18,6 +18,20 @@ public class Menu {
         return selectedOption;
     }
     public int setSelectedOption(int selectedOption) {
-        return -1;
+        if (selectedOption < 1)
+        {
+            System.out.println("ERROR: Invalid option!!!");
+            return -1;
+        }
+        else if (selectedOption > 3)
+        {
+            System.out.println("ERROR: Invalid option!!!");
+            return -1;
+        }
+        else
+        {
+            this.selectedOption = selectedOption;
+            return 1;
+        }
     }
 }
