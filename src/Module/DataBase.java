@@ -10,15 +10,9 @@ public class DataBase {
         BufferedReader buffer = null;
         File existFile = new File(pathFile);
 
-        if (!existFile.exists())
+        if ((!existFile.exists()) || (pathFile == ""))
         {
-            System.out.println("The file with path " + pathFile + " don't exist!!\n");
-            buffer = null;
-        }
-        else if (pathFile == "")
-        {
-            System.out.println("The path is empty!!\n");
-            buffer = null;
+            System.out.println("ERROR: The file don't exist!!\n");
         }
         else if (existFile.isFile())
         {
