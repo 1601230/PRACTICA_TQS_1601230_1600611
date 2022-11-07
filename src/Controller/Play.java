@@ -41,12 +41,7 @@ public class Play {
     }
     public int setSelectedLevel(int selectedLevel)
     {
-        if (selectedLevel < 1)
-        {
-            System.out.println("ERROR: Invalid level!!!");
-            return -1;
-        }
-        else if (selectedLevel > 3)
+        if ((selectedLevel < 1) || (selectedLevel > 3))
         {
             System.out.println("ERROR: Invalid level!!!");
             return -1;
