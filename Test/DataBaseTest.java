@@ -11,7 +11,6 @@ import java.nio.Buffer;
 import static org.junit.Assert.*;
 
 public class DataBaseTest {
-
     @Test
     public void readFile() throws IOException {
 
