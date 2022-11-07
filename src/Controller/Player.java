@@ -14,7 +14,7 @@ public class Player {
     }
     public int setNickName(String nickName)
     {
-        if ((nickName == "") || (nickName.length() < 4))
+        if (nickName == "")
         {
             System.out.println("ERROR: The nickname is less than 4 characters long!!!");
             return -1;
@@ -36,7 +36,7 @@ public class Player {
                 }
             }
 
-            if (espacios == true)
+            if ((espacios == true) || (nickName.length() < 4))
             {
                 return -1;
             }
