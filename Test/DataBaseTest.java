@@ -20,5 +20,11 @@ public class DataBaseTest {
 
         BufferedReader valueReturn1 = DataBase.readFile("src/Module/Easy level 1.txt");// valid
         Assert.assertEquals("0 0 0 0 0 0 0 0 0 0", valueReturn1.readLine());
+
+        BufferedReader valueReturn2 = DataBase.readFile("src/Easy level 1.txt");//no valid
+        Assert.assertEquals(null, valueReturn2);
+
+        BufferedReader valueReturn3 = DataBase.readFile("src/Module");// no valid
+        Assert.assertEquals(null, valueReturn3);
     }
 }
