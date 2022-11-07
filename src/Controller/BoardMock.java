@@ -5,6 +5,8 @@ public class BoardMock extends Board{
     public int getBoardRowSize() { return 10; }
     public int getBoardColumnSize() { return 10; }
     public int getPossibleMovesSize() { return 5; }
+    public int getNumberMines() { return 10; }
+    public int getFlags() { return 9; }
 
     public int checkCoordinateX(int coordinateX)
     {
