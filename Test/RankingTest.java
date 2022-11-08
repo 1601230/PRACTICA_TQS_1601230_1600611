@@ -93,6 +93,13 @@ public class RankingTest {
         boolean returnValue3 = isEqual("src/Module/Ranking.txt", "Test/RankingTest/RankingTest4.txt");
         Assert.assertEquals(true, returnValue3);
 
+        player.setNickName("Juan");
+        play.setTime(459);
+        play.setPlayer(player);
+        ranking.writeRanking(play);
+        boolean returnValue4 = isEqual("src/Module/Ranking.txt", "Test/RankingTest/RankingTest5.txt");
+        Assert.assertEquals(true, returnValue4);
+
         player.setNickName("");
         play.setTime(0);
         play.setPlayer(player);
