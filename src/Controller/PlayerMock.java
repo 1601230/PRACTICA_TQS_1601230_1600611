@@ -4,6 +4,11 @@ public class PlayerMock extends Player{
 
     public String getNickName()
     {
-        return "Joel";
+        return nickName;
+    }
+    public int setNickName(String nickName)
+    {
+        this.nickName = nickName;
+        return 1;
     }
 }

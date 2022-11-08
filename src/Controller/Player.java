@@ -1,7 +1,7 @@
 package Controller;
 
 public class Player {
-    private String nickName = null;
+    protected String nickName = null;
 
     public void Player()
     {
