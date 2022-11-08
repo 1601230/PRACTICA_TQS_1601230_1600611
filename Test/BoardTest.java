@@ -74,7 +74,7 @@ public class BoardTest {
     @Test
     public void checkInputMove()
     {
-        Board board = new BoardMock();
+        BoardMock board = new BoardMock();
 
         int returnValue0 = board.checkInputMove(-5); //no valid
         Assert.assertEquals(-1, returnValue0);
@@ -88,19 +88,31 @@ public class BoardTest {
         int returnValue3 = board.checkInputMove(6); //no valid i limit
         Assert.assertEquals(-1, returnValue3);
 
-        int returnValue4 = board.checkInputMove(3); //valid
-        Assert.assertEquals(1, returnValue4);
+        board.setFlags(0);
+        int returnValue4 = board.checkInputMove(2); //no valid i limit
+        Assert.assertEquals(-1, returnValue4);
 
-        int returnValue5 = board.checkInputMove(2); //valid i limit
-        Assert.assertEquals(1, returnValue5);
+        board.setFlags(board.getNumberMines());
+        int returnValue5 = board.checkInputMove(3); //no valid
+        Assert.assertEquals(-1, returnValue5);
 
-        int returnValue6 = board.checkInputMove(4); //valid i limit
-        Assert.assertEquals(1, returnValue6);
+        int returnValue6 = board.checkInputMove(6); //no valid i limit
+        Assert.assertEquals(-1, returnValue6);
 
-        int returnValue7 = board.checkInputMove(1); //valid i frontera
+        board.setFlags(9);
+        int returnValue7 = board.checkInputMove(3); //valid
         Assert.assertEquals(1, returnValue7);
 
-        int returnValue8 = board.checkInputMove(5); //valid i frontera
+        int returnValue8 = board.checkInputMove(2); //valid i limit
         Assert.assertEquals(1, returnValue8);
+
+        int returnValue9 = board.checkInputMove(4); //valid i limit
+        Assert.assertEquals(1, returnValue9);
+
+        int returnValue10 = board.checkInputMove(1); //valid i frontera
+        Assert.assertEquals(1, returnValue10);
+
+        int returnValue11 = board.checkInputMove(5); //valid i frontera
+        Assert.assertEquals(1, returnValue11);
     }
 }
