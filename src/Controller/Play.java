@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Play {
     private List<String> menuLevels = Arrays.asList(new String[]{"1. Easy", "2. Medium", "3. Hard"});
-    private Player player = null;
+    protected Player player = null;
     int selectedLevel = 0;
     private int time = 0;
     private boolean win = false;
