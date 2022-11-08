@@ -92,27 +92,33 @@ public class BoardTest {
         int returnValue4 = board.checkInputMove(2); //no valid i limit
         Assert.assertEquals(-1, returnValue4);
 
-        board.setFlags(board.getNumberMines());
-        int returnValue5 = board.checkInputMove(3); //no valid
-        Assert.assertEquals(-1, returnValue5);
+        int returnValue5 = board.checkInputMove(3); //valid
+        Assert.assertEquals(1, returnValue5);
 
-        int returnValue6 = board.checkInputMove(6); //no valid i limit
+        board.setFlags(board.getNumberMines());
+        int returnValue6 = board.checkInputMove(3); //no valid
         Assert.assertEquals(-1, returnValue6);
 
-        board.setFlags(9);
-        int returnValue7 = board.checkInputMove(3); //valid
+        int returnValue7 = board.checkInputMove(2); //valid
         Assert.assertEquals(1, returnValue7);
 
-        int returnValue8 = board.checkInputMove(2); //valid i limit
-        Assert.assertEquals(1, returnValue8);
+        int returnValue8 = board.checkInputMove(6); //no valid i limit
+        Assert.assertEquals(-1, returnValue8);
 
-        int returnValue9 = board.checkInputMove(4); //valid i limit
+        board.setFlags(9);
+        int returnValue9 = board.checkInputMove(3); //valid
         Assert.assertEquals(1, returnValue9);
 
-        int returnValue10 = board.checkInputMove(1); //valid i frontera
+        int returnValue10 = board.checkInputMove(2); //valid i limit
         Assert.assertEquals(1, returnValue10);
 
-        int returnValue11 = board.checkInputMove(5); //valid i frontera
+        int returnValue11 = board.checkInputMove(4); //valid i limit
         Assert.assertEquals(1, returnValue11);
+
+        int returnValue12 = board.checkInputMove(1); //valid i frontera
+        Assert.assertEquals(1, returnValue12);
+
+        int returnValue13 = board.checkInputMove(5); //valid i frontera
+        Assert.assertEquals(1, returnValue13);
     }
 }
