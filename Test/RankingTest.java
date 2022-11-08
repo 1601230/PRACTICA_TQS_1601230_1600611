@@ -53,7 +53,14 @@ public class RankingTest {
 
         Ranking ranking = new Ranking();
         ranking.writeRanking(play);
-        boolean returnValue0 = isEqual("src/Module/Ranking.txt", "Test/RankingTest.txt");
+        boolean returnValue0 = isEqual("src/Module/Ranking.txt", "Test/RankingTest/RankingTest1.txt");
         Assert.assertEquals(true, returnValue0);
+
+        play.setTime(352);
+        player.setNickName("Ahmed");
+        play.setPlayer(player);
+        ranking.writeRanking(play);
+        boolean returnValue1 = isEqual("src/Module/Ranking.txt", "Test/RankingTest/RankingTest2.txt");
+        Assert.assertEquals(true, returnValue1);
     }
 }
