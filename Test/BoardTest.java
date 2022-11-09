@@ -243,4 +243,25 @@ public class BoardTest {
         Assert.assertEquals(1, returnValue13);
     }
 
+    @Test
+    public void win()
+    {
+        BoardMock board = new BoardMock();
+
+        boolean returnValue0 = board.win();
+        Assert.assertEquals(true, returnValue0);
+    }
+    @Test
+    public void makeMove()
+    {
+        Board board = new Board();
+        List<Integer> coordinates = new ArrayList<Integer>();
+        coordinates.add(1);
+        coordinates.add(1);
+
+        int returnValue0 = board.makeMove(1,coordinates,1);
+        Assert.assertEquals(-1, returnValue0);
+    }
+
+
 }

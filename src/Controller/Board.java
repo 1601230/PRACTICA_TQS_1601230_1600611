@@ -131,32 +131,7 @@ public class Board {
 
     public boolean win()
     {
-        boolean win =  true;
-        int i = 0;
-        int j = 0;
-
-        if (flags == 0)
-        {
-            while ((i < board.size()) && (win == true))
-            {
-                j = 0;
-                while ((j < board.get(i).size()) && (win == true))
-                {
-                    if (board.get(i).get(j).getOpen() == false)
-                    {
-                        win = false;
-                    }
-                    j = j + 1;
-                }
-                i = i + 1;
-            }
-        }
-        else
-        {
-            win = false;
-        }
-
-        return win;
+        return false;
     }
     public int makeMove(int move, List<Integer> coordinates, int level)
     {
