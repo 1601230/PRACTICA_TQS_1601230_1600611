@@ -7,20 +7,20 @@ public class Box {
 
     public boolean getMine()
     {
-        return true;
+        return mine;
     }
     public boolean getOpen()
     {
-        return true;
+        return open;
     }
-    public String getContent() { return "?"; }
+    public String getContent() { return content; }
     public void setMine(boolean mine)
     {
-        mine = mine;
+        this.mine = mine;
     }
     public void setOpen(boolean open)
     {
-        open = open;
+        this.open = open;
     }
-    public void setContent(String content) { content = content; }
+    public void setContent(String content) { this.content = content; }
 }
