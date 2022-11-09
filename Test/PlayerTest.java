@@ -28,26 +28,38 @@ public class PlayerTest {
         int valueReturn3 = player.setNickName("    "); //no valid
         Assert.assertEquals(-1, valueReturn3);
 
-        int valueReturn4 = player.setNickName("tete2ete"); //valid
-        Assert.assertEquals(1, valueReturn4);
+        int valueReturn4 = player.setNickName("player1"); //no valid
+        Assert.assertEquals(-1, valueReturn4);
 
-        int valueReturn5 = player.setNickName("abab5"); //Limit dreta, valid
+        int valueReturn5 = player.setNickName("tetetete"); //valid
         Assert.assertEquals(1, valueReturn5);
 
-        int valueReturn6 = player.setNickName("abab"); //Frontera, valid
+        int valueReturn6 = player.setNickName("ababb"); //Limit dreta, valid
         Assert.assertEquals(1, valueReturn6);
 
-        int valueReturn7 = player.setNickName(" abab"); //1 passada pel bucle
-        Assert.assertEquals(-1, valueReturn7);
+        int valueReturn7 = player.setNickName("abab"); //Frontera, valid
+        Assert.assertEquals(1, valueReturn7);
 
-        int valueReturn8 = player.setNickName("a bab"); //2 passades pel bucle
+        int valueReturn8 = player.setNickName(" abab"); //1 passada pel bucle
         Assert.assertEquals(-1, valueReturn8);
 
-        int valueReturn9 = player.setNickName("aba78 59bg"); //m passades pel bucle
+        int valueReturn9 = player.setNickName("a bab"); //2 passades pel bucle
         Assert.assertEquals(-1, valueReturn9);
 
-        int valueReturn10 = player.setNickName("aba7859bg"); //n passades pel bucle
-        Assert.assertEquals(1, valueReturn10);
+        int valueReturn10 = player.setNickName("aba78 59bg"); //m passades pel bucle
+        Assert.assertEquals(-1, valueReturn10);
+
+        int valueReturn11 = player.setNickName("1qwer"); //1 passada pel bucle
+        Assert.assertEquals(-1, valueReturn11);
+
+        int valueReturn12 = player.setNickName("u8opuy"); //2 passades pel bucle
+        Assert.assertEquals(-1, valueReturn12);
+
+        int valueReturn13 = player.setNickName("abat6yubg"); //m passades pel bucle
+        Assert.assertEquals(-1, valueReturn13);
+
+        int valueReturn14 = player.setNickName("abaretubg"); //n passades pel bucle
+        Assert.assertEquals(1, valueReturn14);
     }
 
 }
