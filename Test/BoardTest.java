@@ -255,7 +255,7 @@ public class BoardTest {
     @Test
     public void makeMove() throws IOException {
 
-        BoardMock board = new BoardMock();
+        BoardMockB board = new BoardMockB();
         board.inicialitzateBoard(1);
         ViewMock view = new ViewMock();
         List<Integer> coordinates = new ArrayList<Integer>();
