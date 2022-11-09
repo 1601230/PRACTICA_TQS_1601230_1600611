@@ -37,7 +37,6 @@ public class BoardTest {
         int returnValue8 = board.checkCoordinateX(10); //valid i frontera
         Assert.assertEquals(1, returnValue8);
     }
-
     @Test
     public void checkCoordinateY()
     {
@@ -70,7 +69,6 @@ public class BoardTest {
         int returnValue8 = board.checkCoordinateY(10); //valid i frontera
         Assert.assertEquals(1, returnValue8);
     }
-
     @Test
     public void checkInputMove()
     {
