@@ -11,7 +11,7 @@ public class GameTest {
     @Test
     public void logicOfTheGame() {
         Game game = new Game();
-        BoardMock board = new BoardMock();
+        BoardMockA board = new BoardMockA();
         Play play = new PlayMock();
         ViewMock view = new ViewMock();
 

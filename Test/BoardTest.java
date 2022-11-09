@@ -1,4 +1,4 @@
-import Controller.BoardMock;
+import Controller.BoardMockA;
 import Controller.Box;
 import View.ViewMock;
 import junit.framework.Assert;
@@ -132,7 +132,7 @@ public class BoardTest {
     @Test
     public void checkCoordinateX()
     {
-        Board board = new BoardMock();
+        Board board = new BoardMockA();
 
         int returnValue0 = board.checkCoordinateX(-5); //no valid
         Assert.assertEquals(-1, returnValue0);
@@ -164,7 +164,7 @@ public class BoardTest {
     @Test
     public void checkCoordinateY()
     {
-        Board board = new BoardMock();
+        Board board = new BoardMockA();
 
         int returnValue0 = board.checkCoordinateY(-5); //no valid
         Assert.assertEquals(-1, returnValue0);
@@ -196,7 +196,7 @@ public class BoardTest {
     @Test
     public void checkInputMove()
     {
-        BoardMock board = new BoardMock();
+        BoardMockA board = new BoardMockA();
 
         int returnValue0 = board.checkInputMove(-5); //no valid
         Assert.assertEquals(-1, returnValue0);
