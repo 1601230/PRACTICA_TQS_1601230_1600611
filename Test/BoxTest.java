@@ -48,5 +48,4 @@ public class BoxTest {
         box.setContent("X");
         Assert.assertEquals("X", box.getContent());
     }
-
 }

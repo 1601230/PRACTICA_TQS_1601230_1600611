@@ -12,11 +12,6 @@ public class Ranking {
     private List<String> ranking = new ArrayList<String>();
     private int numTop = 10;
 
-    public void Ranking()
-    {
-        //void;
-    }
-
     public String getPathRanking() { return pathRanking; }
     public void setPathRanking(String pathRanking) { this.pathRanking = pathRanking; }
     public int getNumTop() { return numTop; }

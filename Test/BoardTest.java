@@ -1,10 +1,79 @@
 import Controller.BoardMock;
+import Controller.Box;
 import junit.framework.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import Controller.Board;
 
 public class BoardTest {
+    @Test
+    public void getBoardRowSize()
+    {
+        Board board = new Board();
+
+        int returnValue0 = board.getBoardRowSize();
+        Assert.assertEquals(0, returnValue0);
+    }
+    @Test
+    public void getBoardColumnSize()
+    {
+        Board board = new Board();
+
+        int returnValue0 = board.getBoardColumnSize();
+        Assert.assertEquals(null, returnValue0);
+    }
+    @Test
+    public void getBox()
+    {
+        Board board = new Board();
+
+        Box returnValue0 = board.getBox(0,0);
+        Assert.assertEquals(null, returnValue0);
+    }
+    @Test
+    public void getPossibleMovesSize()
+    {
+        Board board = new Board();
+
+        int returnValue0 = board.getPossibleMovesSize();
+        Assert.assertEquals(5, returnValue0);
+    }
+    @Test
+    public void getElementPossibleMoves()
+    {
+        Board board = new Board();
+
+        String valueReturn0 = board.getElementPossibleMoves(0);
+        Assert.assertEquals("1. Open the box", valueReturn0);
+
+        String valueReturn1 = board.getElementPossibleMoves(1);
+        Assert.assertEquals("2. Put a flag", valueReturn1);
+
+        String valueReturn2 = board.getElementPossibleMoves(2);
+        Assert.assertEquals("3. Remove a flag", valueReturn2);
+
+        String valueReturn3 = board.getElementPossibleMoves(3);
+        Assert.assertEquals("4. Cancel", valueReturn3);
+
+        String valueReturn4 = board.getElementPossibleMoves(4);
+        Assert.assertEquals("5. Exit from the game", valueReturn4);
+    }
+    @Test
+    public void getNumberMines()
+    {
+        Board board = new Board();
+
+        int returnValue0 = board.getNumberMines();
+        Assert.assertEquals(0, returnValue0);
+    }
+    @Test
+    public void getFlags()
+    {
+        Board board = new Board();
+
+        int returnValue0 = board.getFlags();
+        Assert.assertEquals(0, returnValue0);
+    }
     @Test
     public void checkCoordinateX()
     {
@@ -119,4 +188,5 @@ public class BoardTest {
         int returnValue13 = board.checkInputMove(5); //valid i frontera
         Assert.assertEquals(1, returnValue13);
     }
+
 }

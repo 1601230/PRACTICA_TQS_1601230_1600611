@@ -4,6 +4,14 @@ import org.junit.Test;
 
 public class PlayerTest {
     @Test
+    public void getNickName()
+    {
+        Player player = new Player();
+
+        String valueReturn0 = player.getNickName();
+        Assert.assertEquals(null, valueReturn0);
+    }
+    @Test
     public void setNickName()
     {
         Player player = new Player();
@@ -41,12 +49,5 @@ public class PlayerTest {
         int valueReturn10 = player.setNickName("aba7859bg"); //n passades pel bucle
         Assert.assertEquals(1, valueReturn10);
     }
-    @Test
-    public void getNickName()
-    {
-        Player player = new Player();
 
-        String valueReturn0 = player.getNickName();
-        Assert.assertEquals(null, valueReturn0);
-    }
 }
