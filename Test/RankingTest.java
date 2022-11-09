@@ -112,4 +112,28 @@ public class RankingTest {
         emptyContentsOfFile.close();
 
     }
+    @Test
+    public void getPathRanking()
+    {
+        Ranking ranking = new Ranking();
+
+        String valueReturn0 = ranking.getPathRanking();
+        Assert.assertEquals("src/Module/Ranking.txt", valueReturn0);
+    }
+    @Test
+    public void getNumTop()
+    {
+        Ranking ranking = new Ranking();
+
+        int valueReturn0 = ranking.getNumTop();
+        Assert.assertEquals(10, valueReturn0);
+    }
+    @Test
+    public void setPathRanking()
+    {
+        Ranking ranking = new Ranking();
+
+        ranking.setPathRanking("newPath");
+        Assert.assertEquals("newPath", ranking.getPathRanking());
+    }
 }
