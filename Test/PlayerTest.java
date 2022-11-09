@@ -41,4 +41,12 @@ public class PlayerTest {
         int valueReturn10 = player.setNickName("aba7859bg"); //n passades pel bucle
         Assert.assertEquals(1, valueReturn10);
     }
+    @Test
+    public void getNickName()
+    {
+        Player player = new Player();
+
+        String valueReturn0 = player.getNickName();
+        Assert.assertEquals(null, valueReturn0);
+    }
 }
