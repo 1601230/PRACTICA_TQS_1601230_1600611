@@ -30,4 +30,34 @@ public class MenuTest {
         Assert.assertEquals(1, valueReturn6);
 
     }
+    @Test
+    public void getMenuOptionsSize()
+    {
+        Menu menu = new Menu();
+
+        int valueReturn0 = menu.getMenuOptionsSize();
+        Assert.assertEquals(3, valueReturn0);
+    }
+    @Test
+    public void getMenuOptionsElement()
+    {
+        Menu menu = new Menu();
+
+        String valueReturn0 = menu.getMenuOptionsElement(0);
+        Assert.assertEquals("1. Play", valueReturn0);
+
+        String valueReturn1 = menu.getMenuOptionsElement(1);
+        Assert.assertEquals("2. Ranking", valueReturn1);
+
+        String valueReturn2 = menu.getMenuOptionsElement(2);
+        Assert.assertEquals("3. Exit", valueReturn2);
+    }
+    @Test
+    public void getSelectedOption()
+    {
+        Menu menu = new Menu();
+
+        int valueReturn0 = menu.getSelectedOption();
+        Assert.assertEquals(0, valueReturn0);
+    }
 }
