@@ -243,7 +243,6 @@ public class BoardTest {
         int returnValue13 = board.checkInputMove(5); //valid i frontera
         Assert.assertEquals(1, returnValue13);
     }
-
     @Test
     public void win()
     {
@@ -329,6 +328,25 @@ public class BoardTest {
 
 
 
+    }
+    @Test
+    public void openBoxANDopenBoxRecursive() throws IOException {
+        Board board = new Board();
+        board.inicialitzateBoard(1);
+
+        ViewMock view = new ViewMock();
+        List<Integer> coordinates = new ArrayList<Integer>();
+        coordinates.add(2);
+        coordinates.add(2);
+        int returnValue0 = board.makeMove(1,coordinates,1, view);
+        Assert.assertEquals(0, returnValue0);
+
+        board.inicialitzateBoard(1);
+        coordinates.clear();
+        coordinates.add(8);
+        coordinates.add(1);
+        int returnValue1 = board.makeMove(1,coordinates,1, view);
+        Assert.assertEquals(0, returnValue1);
     }
 
 

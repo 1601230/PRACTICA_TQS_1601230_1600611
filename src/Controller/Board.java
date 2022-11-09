@@ -64,6 +64,10 @@ public class Board {
 
         if (buffer != null)
         {
+            if (board.size() != 0)
+            {
+                board.clear();
+            }
             String rowTableInfo;
             while ((rowTableInfo = buffer.readLine()) != null) {
                 List<String> rowTablePartition = Arrays.asList(rowTableInfo.split(" "));
@@ -162,12 +166,162 @@ public class Board {
 
     public void openBox(List<Integer> coordinates)
     {
-       ///void
-    }
+        int i = coordinates.get(0) - 1;
+        int j = coordinates.get(1) - 1;
+        int mineCounter = 0;
 
+        i = i - 1;
+        j = j - 1;
+
+        for (int y = 0; y < 3; y++)
+        {
+            if ((i >= 0) && (i < board.size()))
+            {
+                for (int z = 0; z < 3; z++)
+                {
+                    if ((j >= 0) && (j < board.get(0).size()))
+                    {
+                        if (board.get(i).get(j).getMine() == true)
+                        {
+                            mineCounter = mineCounter + 1;
+                        }
+                    }
+                    j = j + 1;
+                }
+            }
+            j = coordinates.get(1) - 1;
+            j = j - 1;
+            i = i + 1;
+        }
+
+        board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).setContent(String.valueOf(mineCounter));
+        if (mineCounter == 0)
+        {
+            openBoxRecursive(coordinates);
+        }
+    }
     public void openBoxRecursive(List<Integer> coordinates)
     {
-        //void
+        List<Integer> newCoordinates = new ArrayList<Integer>();
+        int i = coordinates.get(0) - 1;
+        int j = coordinates.get(1) - 1;
+
+        //Left - up
+        j = j - 1;
+        i = i - 1;
+        if ((j >= 0) && (j < board.get(0).size()) && (i >= 0) && (i < board.size()))
+        {
+            newCoordinates.add(i + 1);
+            newCoordinates.add(j + 1);
+            if (board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).getOpen() == false)
+            {
+                board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).setOpen(true);
+                openBox(newCoordinates);
+            }
+            newCoordinates.remove(1);
+            newCoordinates.remove(0);
+        }
+
+        //Left
+        i = i + 1;
+        if ((j >= 0) && (j < board.get(0).size()))
+        {
+            newCoordinates.add(i + 1);
+            newCoordinates.add(j + 1);
+            if (board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).getOpen() == false)
+            {
+                board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).setOpen(true);
+                openBox(newCoordinates);
+            }
+            newCoordinates.remove(1);
+            newCoordinates.remove(0);
+        }
+
+        //Left - down
+        i = i + 1;
+        if ((j >= 0) && (j < board.get(0).size()) && (i >= 0) && (i < board.size()))
+        {
+            newCoordinates.add(i + 1);
+            newCoordinates.add(j + 1);
+            if (board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).getOpen() == false)
+            {
+                board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).setOpen(true);
+                openBox(newCoordinates);
+            }
+            newCoordinates.remove(1);
+            newCoordinates.remove(0);
+        }
+
+        //Down
+        j = j + 1;
+        if ((i >= 0) && (i < board.size()))
+        {
+            newCoordinates.add(i + 1);
+            newCoordinates.add(j + 1);
+            if (board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).getOpen() == false)
+            {
+                board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).setOpen(true);
+                openBox(newCoordinates);
+            }
+            newCoordinates.remove(1);
+            newCoordinates.remove(0);
+        }
+
+        //Right - Down
+        j = j + 1;
+        if ((j >= 0) && (j < board.get(0).size()) && (i >= 0) && (i < board.size()))
+        {
+            newCoordinates.add(i + 1);
+            newCoordinates.add(j + 1);
+            if (board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).getOpen() == false)
+            {
+                board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).setOpen(true);
+                openBox(newCoordinates);
+            }
+            newCoordinates.remove(1);
+            newCoordinates.remove(0);
+        }
+
+        //Right
+        i = i - 1;
+        if ((j >= 0) && (j < board.get(0).size()))
+        {
+            newCoordinates.add(i + 1);
+            newCoordinates.add(j + 1);
+            if (board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).getOpen() == false)
+            {
+                board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).setOpen(true);
+                openBox(newCoordinates);
+            }
+            newCoordinates.remove(1);
+            newCoordinates.remove(0);
+        }
+
+        //Right - up
+        i = i - 1;
+        if ((i >= 0) && (i < board.size()) && (j >= 0) && (j < board.get(0).size()))
+        {
+            newCoordinates.add(i + 1);
+            newCoordinates.add(j + 1);
+            if (board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).getOpen() == false)
+            {
+                board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).setOpen(true);
+                openBox(newCoordinates);
+            }
+        }
+
+        /*//Up
+        j = j - 1;
+        if ((i >= 0) && (i < board.size()))
+        {
+            newCoordinates.add(i + 1);
+            newCoordinates.add(j + 1);
+            if (board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).getOpen() == false)
+            {
+                board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).setOpen(true);
+                openBox(newCoordinates);
+            }
+        }*/
     }
 
     public int makeMove(int move, List<Integer> coordinates, int level, View view) //-1: LOSE; 0: CONTINUE; 1: WIN
