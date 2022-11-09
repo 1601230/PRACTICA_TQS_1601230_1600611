@@ -15,8 +15,20 @@ public class Board {
     private int flags = 0;
 
     public int getBoardRowSize() { return board.size(); }
-    public int getBoardColumnSize() { return board.get(0).size(); }
-    public Box getBox(int i, int j) { return board.get(i).get(j); }
+    public int getBoardColumnSize() {
+        if (board.size() == 0)
+        {
+            return -1;
+        }
+        return board.get(0).size();
+    }
+    public Box getBox(int i, int j) {
+        if (board.size() == 0)
+        {
+            return null;
+        }
+        return board.get(i).get(j);
+    }
     public int getPossibleMovesSize() { return possibleMoves.size(); }
     public String getElementPossibleMoves(int i) { return possibleMoves.get(i); }
     public int getNumberMines() { return numberMines; }

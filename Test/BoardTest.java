@@ -20,7 +20,7 @@ public class BoardTest {
         Board board = new Board();
 
         int returnValue0 = board.getBoardColumnSize();
-        Assert.assertEquals(null, returnValue0);
+        Assert.assertEquals(-1, returnValue0);
     }
     @Test
     public void getBox()
