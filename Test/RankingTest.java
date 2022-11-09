@@ -11,9 +11,6 @@ import static org.junit.Assert.*;
 public class RankingTest {
 
     private boolean isEqual(String pathFile1, String pathFile2) throws IOException {
-
-        /*File file1 = new File(pathFile1);
-        File file2 = new File(pathFile2);*/
         BufferedReader bufferFile1 = new BufferedReader(new FileReader(pathFile1));
         BufferedReader bufferFile2 = new BufferedReader(new FileReader(pathFile2));
 
@@ -27,10 +24,6 @@ public class RankingTest {
             numberOfLinesFile2++;
         }
 
-        /*if (Files.size(file1.toPath()) != Files.size(file2.toPath()))
-        {
-            return false;
-        }*/
         if (numberOfLinesFile1 != numberOfLinesFile2)
         {
             return false;

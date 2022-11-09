@@ -71,4 +71,12 @@ public class Board {
             }
         }
     }
+    public boolean win()
+    {
+        return false;
+    }
+    public int makeMove(int move, List<Integer> coordinates, int level)
+    {
+        return 0;
+    }
 }

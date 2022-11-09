@@ -5,6 +5,7 @@ import java.util.List;
 public class BoardMock extends Board{
     private int numberMines = 10;
     private int flags = 9;
+    private boolean win;
 
     public int getBoardRowSize() { return 10; }
     public int getBoardColumnSize() { return 10; }
@@ -15,6 +16,11 @@ public class BoardMock extends Board{
     public int makeMove(int move, List<Integer> coordinates, int level)
     {
         return 0;
+    }
+    public void setWin(boolean win) { this.win = win; }
+    public boolean win()
+    {
+        return win;
     }
 
 }
