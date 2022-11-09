@@ -1,5 +1,6 @@
 package Controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import View.*;
@@ -47,5 +48,9 @@ public class Game {
         }
 
         return returnValue;
+    }
+
+    public int playGame(Menu menu, View view) {
+        return -1;
     }
 }

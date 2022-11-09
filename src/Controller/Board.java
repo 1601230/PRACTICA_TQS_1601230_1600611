@@ -1,8 +1,12 @@
 package Controller;
 
+import Module.*;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Board {
     private List<List<Box>> board = new ArrayList<List<Box>>();
@@ -33,7 +37,38 @@ public class Board {
     public String getElementPossibleMoves(int i) { return possibleMoves.get(i); }
     public int getNumberMines() { return numberMines; }
     public int getFlags() { return flags; }
+    public int randomBoard(int level)
+    {
+        Random random = new Random();
+        int randomBoard = random.nextInt((listLevels.get(level).size() - 1) + 1) + 1;
+        return randomBoard;
+    }
+    public void inicialitzateBoard(int level) throws IOException
+    {
+        int randomBoard = randomBoard(level - 1);
+        String pathBoard = listLevels.get(level - 1).get(randomBoard - 1);
+        BufferedReader buffer = DataBase.readFile(pathBoard);
 
+        if (buffer != null)
+        {
+            String rowTableInfo;
+            while ((rowTableInfo = buffer.readLine()) != null) {
+                List<String> rowTablePartition = Arrays.asList(rowTableInfo.split(" "));
+                List<Box> rowTable = new ArrayList<Box>();
+                ;
+                for (int i = 0; i < rowTablePartition.size(); i++) {
+                    Box box = new Box();
+                    if (Integer.parseInt(rowTablePartition.get(i)) == 1) {
+                        box.setMine(true);
+                        numberMines = numberMines + 1;
+                    }
+                    rowTable.add(box);
+                }
+                board.add(rowTable);
+            }
+            flags = numberMines;
+        }
+    }
     public int checkCoordinateX(int coordinateX)
     {
         if ((coordinateX > getBoardRowSize()) || (coordinateX < 1))
@@ -83,6 +118,7 @@ public class Board {
             }
         }
     }
+
     public boolean win()
     {
         return false;

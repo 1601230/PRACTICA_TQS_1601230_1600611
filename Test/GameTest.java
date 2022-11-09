@@ -42,4 +42,20 @@ public class GameTest {
         solucioEsperada.add(0);
         Assert.assertEquals(solucioEsperada, returnValue2);
     }
+    @Test
+    public void playGame()
+    {
+        ViewMock view = new ViewMock();
+        Menu menu = new Menu();
+        Game game = new Game();
+
+        view.setMenu(1);
+        view.setNickName("player");
+        view.setLevels(1);
+        view.setX(1);
+        view.setY(1);
+        view.setMoves(5);
+        int returnValue0 = game.playGame(menu, view);
+        Assert.assertEquals(1, returnValue0);
+    }
 }
