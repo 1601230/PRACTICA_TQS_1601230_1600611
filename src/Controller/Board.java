@@ -10,7 +10,8 @@ import java.util.Random;
 
 public class Board {
     private List<List<Box>> board = new ArrayList<List<Box>>();
-    private List<List<String>> listLevels = Arrays.asList(Arrays.asList(new String[]{"src/Module/Easy level 1.txt", "src/Module/Easy level 2.txt"}),
+    private List<List<String>> listLevels = Arrays.asList(
+            Arrays.asList(new String[]{"src/Module/Easy level 1.txt", "src/Module/Easy level 2.txt"}),
             Arrays.asList(new String[]{"src/Module/Medium level 1.txt", "src/Module/Medium level 2.txt"}),
             Arrays.asList(new String[]{"src/Module/Hard level 1.txt",  "src/Module/Hard level 2.txt"}));
     private List<String> possibleMoves = Arrays.asList(new String[]{"1. Open the box", "2. Put a flag", "3. Remove a flag", "4. Cancel", "5. Exit from the game"});
@@ -37,13 +38,24 @@ public class Board {
     public String getElementPossibleMoves(int i) { return possibleMoves.get(i); }
     public int getNumberMines() { return numberMines; }
     public int getFlags() { return flags; }
+    public int getListLevelsSize(int i)
+    {
+        return listLevels.get(i).size();
+    }
+    public void setPathListLevel(int i, String newPath)
+    {
+        for (int j = 0; j < listLevels.get(j).size(); j++)
+        {
+            listLevels.get(i).set(j, newPath);
+        }
+    }
     public int randomBoard(int level)
     {
         Random random = new Random();
         int randomBoard = random.nextInt((listLevels.get(level).size() - 1) + 1) + 1;
         return randomBoard;
     }
-    public void inicialitzateBoard(int level) throws IOException
+    public int inicialitzateBoard(int level) throws IOException
     {
         int randomBoard = randomBoard(level - 1);
         String pathBoard = listLevels.get(level - 1).get(randomBoard - 1);
@@ -55,7 +67,7 @@ public class Board {
             while ((rowTableInfo = buffer.readLine()) != null) {
                 List<String> rowTablePartition = Arrays.asList(rowTableInfo.split(" "));
                 List<Box> rowTable = new ArrayList<Box>();
-                ;
+
                 for (int i = 0; i < rowTablePartition.size(); i++) {
                     Box box = new Box();
                     if (Integer.parseInt(rowTablePartition.get(i)) == 1) {
@@ -67,10 +79,13 @@ public class Board {
                 board.add(rowTable);
             }
             flags = numberMines;
+
+            return 1;
         }
         else
         {
             System.out.println("ERROR: Minesweeper table not created");
+            return -1;
         }
     }
     public int checkCoordinateX(int coordinateX)
@@ -97,27 +112,18 @@ public class Board {
             return 1;
         }
     }
-    public int checkInputMove(int move)
-    {
-        if ((move < 1) || (move > getPossibleMovesSize()))
-        {
+    public int checkInputMove(int move) {
+        if ((move < 1) || (move > getPossibleMovesSize())) {
             System.out.println("ERROR: The selected option must be a value between 1 and " + getPossibleMovesSize() + " .");
             return -1;
-        }
-        else
-        {
-            if ((move == 2) && (getFlags() == 0))
-            {
+        } else {
+            if ((move == 2) && (getFlags() == 0)) {
                 System.out.println("ERROR: All flags are set, if you want to set another flag you will have to remove some of the flags set.");
                 return -1;
-            }
-            else if ((move == 3) && (getFlags() == getNumberMines()))
-            {
+            } else if ((move == 3) && (getFlags() == getNumberMines())) {
                 System.out.println("ERROR: There is no flag on.");
                 return -1;
-            }
-            else
-            {
+            } else {
                 return 1;
             }
         }

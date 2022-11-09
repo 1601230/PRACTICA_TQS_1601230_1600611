@@ -2,10 +2,25 @@ import Controller.BoardMock;
 import Controller.Box;
 import junit.framework.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import Controller.Board;
+import Controller.*;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BoardTest {
+    private boolean inRange(int randomValue, int level)
+    {
+        Board board = new Board();
+        if ((randomValue < 1) || (randomValue > board.getListLevelsSize(level)))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     @Test
     public void getBoardRowSize()
     {
@@ -73,6 +88,45 @@ public class BoardTest {
 
         int returnValue0 = board.getFlags();
         Assert.assertEquals(0, returnValue0);
+    }
+    @Test
+    public void randomBoard()
+    {
+        Board board = new Board();
+
+        int returnValue0 = board.randomBoard(0);
+        Assert.assertEquals(true, inRange(returnValue0, 0));
+
+        int returnValue1 = board.randomBoard(1);
+        Assert.assertEquals(true, inRange(returnValue1, 1));
+
+        int returnValue2 = board.randomBoard(2);
+        Assert.assertEquals(true, inRange(returnValue2, 2));
+    }
+    @Test
+    public void inicialitzateBoard() throws IOException {
+        Board board = new Board();
+
+        int returnValue0 = board.inicialitzateBoard(1);
+        Assert.assertEquals(1, returnValue0);
+
+        int returnValue1 = board.inicialitzateBoard(2);
+        Assert.assertEquals(1, returnValue1);
+
+        int returnValue2 = board.inicialitzateBoard(3);
+        Assert.assertEquals(1, returnValue2);
+
+        board.setPathListLevel(0, "/newPath");
+        int returnValue3 = board.inicialitzateBoard(1);
+        Assert.assertEquals(-1, returnValue3);
+
+        board.setPathListLevel(1, "/newPath");
+        int returnValue4 = board.inicialitzateBoard(2);
+        Assert.assertEquals(-1, returnValue4);
+
+        board.setPathListLevel(2, "/newPath");
+        int returnValue5 = board.inicialitzateBoard(3);
+        Assert.assertEquals(-1, returnValue5);
     }
     @Test
     public void checkCoordinateX()

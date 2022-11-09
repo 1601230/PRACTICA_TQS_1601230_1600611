@@ -15,33 +15,33 @@ public class GameTest {
         Play play = new PlayMock();
         ViewMock view = new ViewMock();
 
-        List<Integer> solucioEsperada = new ArrayList<Integer>();
+        List<Integer> solution = new ArrayList<Integer>();
 
         view.setX(1);
         view.setY(1);
         view.setMoves(1);
         board.setWin(false);
         List<Integer> returnValue0 = game.logicOfTheGame(board, play, view);
-        solucioEsperada.add(1);
-        solucioEsperada.add(0);
-        Assert.assertEquals(solucioEsperada, returnValue0);
+        solution.add(1);
+        solution.add(0);
+        Assert.assertEquals(solution, returnValue0);
 
         view.setY(2);
         view.setMoves(2);
         board.setWin(true);
         List<Integer> returnValue1 = game.logicOfTheGame(board, play, view);
-        solucioEsperada.clear();
-        solucioEsperada.add(2);
-        solucioEsperada.add(1);
-        Assert.assertEquals(solucioEsperada, returnValue1);
+        solution.clear();
+        solution.add(2);
+        solution.add(1);
+        Assert.assertEquals(solution, returnValue1);
 
         view.setMoves(5);
         board.setWin(false);
         List<Integer> returnValue2 = game.logicOfTheGame(board, play, view);
-        solucioEsperada.clear();
-        solucioEsperada.add(5);
-        solucioEsperada.add(0);
-        Assert.assertEquals(solucioEsperada, returnValue2);
+        solution.clear();
+        solution.add(5);
+        solution.add(0);
+        Assert.assertEquals(solution, returnValue2);
     }
     @Test
     public void playGame() throws IOException {

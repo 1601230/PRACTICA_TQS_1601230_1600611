@@ -85,8 +85,8 @@ public class Game {
                 } while(error == -1);
 
                 Board board = new Board();
-                board.inicialitzateBoard(play.getSelectedLevel());
-                if (board.getBoardRowSize() != 0)
+                int creatBoard = board.inicialitzateBoard(play.getSelectedLevel());
+                if (creatBoard == 1)
                 {
                     view.printTable(board, play.getSelectedLevel());
 
