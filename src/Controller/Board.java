@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Board {
-    private List<List<Box>> board = new ArrayList<List<Box>>();
+    protected List<List<Box>> board = new ArrayList<List<Box>>();
     private List<List<String>> listLevels = Arrays.asList(
             Arrays.asList(new String[]{"src/Module/Easy level 1.txt", "src/Module/Easy level 2.txt"}),
             Arrays.asList(new String[]{"src/Module/Medium level 1.txt", "src/Module/Medium level 2.txt"}),
@@ -131,10 +131,10 @@ public class Board {
 
     public boolean win()
     {
-        return false;
+        return true;
     }
     public int makeMove(int move, List<Integer> coordinates, int level)
     {
-        return 0;
+        return -1;
     }
 }

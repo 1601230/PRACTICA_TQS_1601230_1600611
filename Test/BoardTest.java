@@ -252,9 +252,11 @@ public class BoardTest {
         Assert.assertEquals(true, returnValue0);
     }
     @Test
-    public void makeMove()
-    {
-        Board board = new Board();
+    public void makeMove() throws IOException {
+
+        BoardMock board = new BoardMock();
+        board.inicialitzateBoard(1);
+
         List<Integer> coordinates = new ArrayList<Integer>();
         coordinates.add(1);
         coordinates.add(1);

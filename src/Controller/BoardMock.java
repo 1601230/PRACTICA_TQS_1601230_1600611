@@ -1,5 +1,6 @@
 package Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BoardMock extends Board{
@@ -21,6 +22,50 @@ public class BoardMock extends Board{
     public boolean win()
     {
         return win;
+    }
+
+    public int inicialitzateBoard(int level)
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            List<Box> testList = new ArrayList<Box>();
+            Box testBox = new Box();
+
+            testBox.setOpen(true);
+            testList.add(testBox);
+
+            testBox.setOpen(false);
+            testBox.setMine(true);
+            testList.add(testBox);
+
+            testBox.setOpen(true);
+            testBox.setContent("F");
+            testList.add(testBox);
+
+            testBox.setMine(false);
+            testBox.setContent(" ");
+            testList.add(testBox);
+
+            testList.add(testBox);
+
+            testList.add(testBox);
+
+            testList.add(testBox);
+
+            testBox.setOpen(true);
+            testList.add(testBox);
+
+            testBox.setOpen(false);
+            testBox.setMine(true);
+            testList.add(testBox);
+
+            testBox.setMine(false);
+            testBox.setContent("F");
+            testList.add(testBox);
+
+            board.add(testList);
+        }
+        return 1;
     }
 
 }
