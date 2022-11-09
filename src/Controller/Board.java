@@ -68,6 +68,10 @@ public class Board {
             }
             flags = numberMines;
         }
+        else
+        {
+            System.out.println("ERROR: Minesweeper table not created");
+        }
     }
     public int checkCoordinateX(int coordinateX)
     {
@@ -121,7 +125,32 @@ public class Board {
 
     public boolean win()
     {
-        return false;
+        boolean win =  true;
+        int i = 0;
+        int j = 0;
+
+        if (flags == 0)
+        {
+            while ((i < board.size()) && (win == true))
+            {
+                j = 0;
+                while ((j < board.get(i).size()) && (win == true))
+                {
+                    if (board.get(i).get(j).getOpen() == false)
+                    {
+                        win = false;
+                    }
+                    j = j + 1;
+                }
+                i = i + 1;
+            }
+        }
+        else
+        {
+            win = false;
+        }
+
+        return win;
     }
     public int makeMove(int move, List<Integer> coordinates, int level)
     {

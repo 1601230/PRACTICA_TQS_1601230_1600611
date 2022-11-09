@@ -3,6 +3,7 @@ import org.junit.Test;
 import Controller.*;
 import View.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +44,7 @@ public class GameTest {
         Assert.assertEquals(solucioEsperada, returnValue2);
     }
     @Test
-    public void playGame()
-    {
+    public void playGame() throws IOException {
         ViewMock view = new ViewMock();
         Menu menu = new Menu();
         Game game = new Game();
@@ -57,5 +57,13 @@ public class GameTest {
         view.setMoves(5);
         int returnValue0 = game.playGame(menu, view);
         Assert.assertEquals(1, returnValue0);
+
+        view.setMenu(2);
+        int returnValue1 = game.playGame(menu, view);
+        Assert.assertEquals(2, returnValue1);
+
+        view.setMenu(3);
+        int returnValue2 = game.playGame(menu, view);
+        Assert.assertEquals(3, returnValue2);
     }
 }
