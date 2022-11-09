@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import View.*;
 
 public class Board {
     protected List<List<Box>> board = new ArrayList<List<Box>>();
@@ -131,10 +132,121 @@ public class Board {
 
     public boolean win()
     {
-        return true;
+        boolean win =  true;
+        int i = 0;
+        int j = 0;
+
+        if (flags == 0)
+        {
+            while ((i < board.size()) && (win == true))
+            {
+                j = 0;
+                while ((j < board.get(i).size()) && (win == true))
+                {
+                    if (board.get(i).get(j).getOpen() == false)
+                    {
+                        win = false;
+                    }
+                    j = j + 1;
+                }
+                i = i + 1;
+            }
+        }
+        else
+        {
+            win = false;
+        }
+
+        return win;
     }
-    public int makeMove(int move, List<Integer> coordinates, int level)
+
+    public void openBox(List<Integer> coordinates)
     {
-        return -1;
+       ///void
+    }
+
+    public void openBoxRecursive(List<Integer> coordinates)
+    {
+        //void
+    }
+
+    public int makeMove(int move, List<Integer> coordinates, int level, View view) //-1: LOSE; 0: CONTINUE; 1: WIN
+    {
+        switch(move)
+        {
+            case 1:
+                if (board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).getContent() == "F")
+                {
+                    System.out.println("ERROR: This box has a flag set.");
+                    return -1;
+                }
+                else if (board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).getOpen() == true)
+                {
+                    System.out.println("ERROR: This box is open.");
+                    return -1;
+                }
+                else
+                {
+                    board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).setOpen(true);
+                    if (board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).getMine() == true)
+                    {
+                        System.out.println(":( There is a mine in this box");
+                        board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).setContent("X");
+                        //printTable(level);
+                        view.printTable(this, level);
+                        return -2;
+                    }
+                    else
+                    {
+                        openBox(coordinates);
+                        view.printTable(this, level);
+                        if (win() ==  true)
+                        {
+                            return 1;
+                        }
+                    }
+                }
+                break;
+
+            case 2:
+                if (board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).getOpen() == false)
+                {
+                    board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).setContent("F");
+                    board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).setOpen(true);
+                    flags = flags - 1;
+                    //printTable(level);
+                    view.printTable(this, level);
+                }
+                else
+                {
+                    System.out.println("ERROR: the box is already open.");
+                    return -1;
+                }
+
+                break;
+
+            case 3:
+                if (board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).getContent() == "F")
+                {
+                    board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).setContent(" ");
+                    board.get(coordinates.get(0) - 1).get(coordinates.get(1) - 1).setOpen(false);
+                    flags = flags + 1;
+                    //printTable(level);
+                    view.printTable(this, level);
+                }
+                else
+                {
+                    System.out.println("ERROR: This box has no flag set.");
+                    return -1;
+                }
+
+                break;
+
+            case 4:
+
+                break;
+        }
+
+        return 0;
     }
 }

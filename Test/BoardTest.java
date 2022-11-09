@@ -1,5 +1,6 @@
 import Controller.BoardMock;
 import Controller.Box;
+import View.ViewMock;
 import junit.framework.Assert;
 import org.junit.Test;
 import Controller.*;
@@ -256,13 +257,61 @@ public class BoardTest {
 
         BoardMock board = new BoardMock();
         board.inicialitzateBoard(1);
-
+        ViewMock view = new ViewMock();
         List<Integer> coordinates = new ArrayList<Integer>();
         coordinates.add(1);
+        coordinates.add(3);
+
+        int returnValue0 = board.makeMove(1,coordinates,1, view);
+        Assert.assertEquals(-1, returnValue0);
+
+        coordinates.clear();
+        coordinates.add(1);
         coordinates.add(1);
 
-        int returnValue0 = board.makeMove(1,coordinates,1);
-        Assert.assertEquals(-1, returnValue0);
+        int returnValue1 = board.makeMove(1,coordinates,1, view);
+        Assert.assertEquals(-1, returnValue1);
+
+        coordinates.clear();
+        coordinates.add(1);
+        coordinates.add(2);
+
+        int returnValue2 = board.makeMove(1,coordinates,1, view);
+        Assert.assertEquals(-2, returnValue2);
+
+        coordinates.clear();
+        coordinates.add(1);
+        coordinates.add(4);
+
+        int returnValue3 = board.makeMove(2,coordinates,1, view);
+        Assert.assertEquals(0, returnValue3);
+
+        coordinates.clear();
+        coordinates.add(1);
+        coordinates.add(3);
+
+        int returnValue4 = board.makeMove(2,coordinates,1, view);
+        Assert.assertEquals(-1, returnValue4);
+
+        coordinates.clear();
+        coordinates.add(1);
+        coordinates.add(3);
+
+        int returnValue5 = board.makeMove(3,coordinates,1, view);
+        Assert.assertEquals(0, returnValue5);
+
+        coordinates.clear();
+        coordinates.add(1);
+        coordinates.add(5);
+
+        int returnValue6 = board.makeMove(3,coordinates,1, view);
+        Assert.assertEquals(-1, returnValue6);
+
+        int returnValue7 = board.makeMove(4,coordinates,1, view);
+        Assert.assertEquals(0, returnValue7);
+
+
+
     }
 
 

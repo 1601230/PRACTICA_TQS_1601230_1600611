@@ -14,55 +14,53 @@ public class BoardMock extends Board{
     public int getNumberMines() { return numberMines; }
     public int getFlags() { return flags; }
     public void setFlags(int flags) { this.flags = flags; }
-    public int makeMove(int move, List<Integer> coordinates, int level)
-    {
-        return 0;
-    }
     public void setWin(boolean win) { this.win = win; }
     public boolean win()
     {
         return win;
     }
-
     public int inicialitzateBoard(int level)
     {
+        List<Box> testList = new ArrayList<Box>();
+
+        Box testBox1 = new Box();
+        testBox1.setOpen(true);
+        testList.add(testBox1);
+
+        Box testBox2 = new Box();
+        testBox2.setMine(true);
+        testList.add(testBox2);
+
+        Box testBox3 = new Box();
+        testBox3.setOpen(true);
+        testBox3.setContent("F");
+        testList.add(testBox3);
+
+        Box testBox4 = new Box();
+        testList.add(testBox4);
+
+        Box testBox5 = new Box();
+        testList.add(testBox5);
+
+        Box testBox6 = new Box();
+        testList.add(testBox6);
+
+        Box testBox7 = new Box();
+        testList.add(testBox7);
+
+        Box testBox8 = new Box();
+        testList.add(testBox8);
+
+        Box testBox9 = new Box();
+        testBox9.setOpen(true);
+        testList.add(testBox9);
+
+        Box testBox10 = new Box();
+        testBox10.setMine(true);
+        testList.add(testBox10);
+
         for (int i = 0; i < 8; i++)
         {
-            List<Box> testList = new ArrayList<Box>();
-            Box testBox = new Box();
-
-            testBox.setOpen(true);
-            testList.add(testBox);
-
-            testBox.setOpen(false);
-            testBox.setMine(true);
-            testList.add(testBox);
-
-            testBox.setOpen(true);
-            testBox.setContent("F");
-            testList.add(testBox);
-
-            testBox.setMine(false);
-            testBox.setContent(" ");
-            testList.add(testBox);
-
-            testList.add(testBox);
-
-            testList.add(testBox);
-
-            testList.add(testBox);
-
-            testBox.setOpen(true);
-            testList.add(testBox);
-
-            testBox.setOpen(false);
-            testBox.setMine(true);
-            testList.add(testBox);
-
-            testBox.setMine(false);
-            testBox.setContent("F");
-            testList.add(testBox);
-
             board.add(testList);
         }
         return 1;

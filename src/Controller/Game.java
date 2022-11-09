@@ -42,7 +42,7 @@ public class Game {
 
         if (returnValue.get(0) != 5)
         {
-            returnValue.set(1, board.makeMove(returnValue.get(0), coordinates, play.getSelectedLevel()));
+            returnValue.set(1, board.makeMove(returnValue.get(0), coordinates, play.getSelectedLevel(), view));
             if (board.win() ==  true)
             {
                 play.setWin(board.win());
