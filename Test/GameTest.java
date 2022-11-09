@@ -25,7 +25,6 @@ public class GameTest {
         solucioEsperada.add(0);
         Assert.assertEquals(solucioEsperada, returnValue0);
 
-        view.setX(1);
         view.setY(2);
         view.setMoves(2);
         board.setWin(true);
@@ -35,8 +34,6 @@ public class GameTest {
         solucioEsperada.add(1);
         Assert.assertEquals(solucioEsperada, returnValue1);
 
-        view.setX(1);
-        view.setY(2);
         view.setMoves(5);
         board.setWin(false);
         List<Integer> returnValue2 = game.logicOfTheGame(board, play, view);
