@@ -10,11 +10,6 @@ public class Play {
     protected int time = 0;
     private boolean win = false;
 
-    public void Game()
-    {
-        //void
-    }
-
     public Player getPlayer()
     {
         return player;

@@ -14,11 +14,6 @@ public class Board {
     private int numberMines = 0;
     private int flags = 0;
 
-    public void Board()
-    {
-        //void;
-    }
-
     public int getBoardRowSize() { return board.size(); }
     public int getBoardColumnSize() { return board.get(0).size(); }
     public Box getBox(int i, int j) { return board.get(i).get(j); }

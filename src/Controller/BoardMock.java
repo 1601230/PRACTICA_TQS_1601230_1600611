@@ -1,5 +1,7 @@
 package Controller;
 
+import java.util.List;
+
 public class BoardMock extends Board{
     private int numberMines = 10;
     private int flags = 9;
@@ -10,4 +12,9 @@ public class BoardMock extends Board{
     public int getNumberMines() { return numberMines; }
     public int getFlags() { return flags; }
     public void setFlags(int flags) { this.flags = flags; }
+    public int makeMove(int move, List<Integer> coordinates, int level)
+    {
+        return 0;
+    }
+
 }

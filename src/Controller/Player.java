@@ -3,11 +3,6 @@ package Controller;
 public class Player {
     protected String nickName = null;
 
-    public void Player()
-    {
-        //void
-    }
-
     public String getNickName()
     {
         return nickName;
