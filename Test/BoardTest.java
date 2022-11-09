@@ -247,10 +247,20 @@ public class BoardTest {
     @Test
     public void win()
     {
-        BoardMock board = new BoardMock();
+        BoardMockC board = new BoardMockC();
 
+        board.inicialitzateBoard(1);
         boolean returnValue0 = board.win();
-        Assert.assertEquals(true, returnValue0);
+        Assert.assertEquals(false, returnValue0);
+
+        board.setFlags(1);
+        boolean returnValue1 = board.win();
+        Assert.assertEquals(false, returnValue1);
+
+        BoardMockD board2 = new BoardMockD();
+        board2.inicialitzateBoard(1);
+        boolean returnValue2 = board2.win();
+        Assert.assertEquals(true, returnValue2);
     }
     @Test
     public void makeMove() throws IOException {
@@ -309,6 +319,13 @@ public class BoardTest {
 
         int returnValue7 = board.makeMove(4,coordinates,1, view);
         Assert.assertEquals(0, returnValue7);
+
+        coordinates.clear();
+        coordinates.add(1);
+        coordinates.add(7);
+
+        int returnValue8 = board.makeMove(1,coordinates,1, view);
+        Assert.assertEquals(1, returnValue8);
 
 
 

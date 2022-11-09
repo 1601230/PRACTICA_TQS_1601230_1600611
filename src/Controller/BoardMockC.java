@@ -3,19 +3,9 @@ package Controller;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoardMockB extends Board{
-    private int numberMines = 10;
-    private int flags = 9;
-    private boolean win;
+public class BoardMockC extends Board{
 
-    public void openBox(List<Integer> coordinates)
-    {
-        ///void
-    }
-    public boolean win()
-    {
-        return true;
-    }
+    public void setFlags(int flags) { this.flags = flags; }
     public int inicialitzateBoard(int level)
     {
         List<Box> testList = new ArrayList<Box>();

@@ -18,7 +18,7 @@ public class Board {
     private List<String> possibleMoves = Arrays.asList(new String[]{"1. Open the box", "2. Put a flag", "3. Remove a flag", "4. Cancel", "5. Exit from the game"});
 
     private int numberMines = 0;
-    private int flags = 0;
+    protected int flags = 0;
 
     public int getBoardRowSize() { return board.size(); }
     public int getBoardColumnSize() {
