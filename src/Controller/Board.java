@@ -50,6 +50,7 @@ public class Board {
             listLevels.get(i).set(j, newPath);
         }
     }
+    public List<List<Box>> getBoardList() { return board; }
     public int randomBoard(int level)
     {
         Random random = new Random();
@@ -309,19 +310,6 @@ public class Board {
                 openBox(newCoordinates);
             }
         }
-
-        /*//Up
-        j = j - 1;
-        if ((i >= 0) && (i < board.size()))
-        {
-            newCoordinates.add(i + 1);
-            newCoordinates.add(j + 1);
-            if (board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).getOpen() == false)
-            {
-                board.get(newCoordinates.get(0) - 1).get(newCoordinates.get(1) - 1).setOpen(true);
-                openBox(newCoordinates);
-            }
-        }*/
     }
 
     public int makeMove(int move, List<Integer> coordinates, int level, View view) //-1: LOSE; 0: CONTINUE; 1: WIN

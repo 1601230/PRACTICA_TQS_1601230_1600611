@@ -7,6 +7,7 @@ import Controller.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BoardTest {
@@ -20,6 +21,146 @@ public class BoardTest {
         else
         {
             return true;
+        }
+    }
+    private List<List<Box>> expectedOutput()
+    {
+        List<List<Box>> board = new ArrayList<List<Box>>();
+
+        List<Box> testList0 = new ArrayList<Box>();
+        for (int j = 0; j < 10; j++)
+        {
+            Box testBox = new Box();
+            testBox.setOpen(true);
+            if (j == 0)
+            {
+                testBox.setOpen(false);
+                testBox.setMine(true);
+            }
+            else if (j == 1)
+            {
+                testBox.setContent(String.valueOf(1));
+            }
+            else
+            {
+                testBox.setContent(String.valueOf(0));
+            }
+            testList0.add(testBox);
+        }
+        board.add(testList0);
+
+        List<Box> testList1 = new ArrayList<Box>();
+        for (int j = 0; j < 10; j++)
+        {
+            Box testBox = new Box();
+            testBox.setOpen(true);
+            if ((j == 0) || (j == 1))
+            {
+                testBox.setContent(String.valueOf(1));
+            }
+            else
+            {
+                testBox.setContent(String.valueOf(0));
+            }
+            testList1.add(testBox);
+        }
+        board.add(testList1);
+
+        for (int i = 0; i < 4; i++)
+        {
+            List<Box> testList = new ArrayList<Box>();
+            for (int j = 0; j < 10; j++)
+            {
+                Box testBox = new Box();
+                testBox.setOpen(true);
+                testBox.setContent(String.valueOf(0));
+                testList.add(testBox);
+            }
+            board.add(testList);
+        }
+
+        List<Box> testList2 = new ArrayList<Box>();
+        for (int j = 0; j < 10; j++)
+        {
+            Box testBox = new Box();
+            testBox.setOpen(true);
+            if (j > 7)
+            {
+                testBox.setContent(String.valueOf(1));
+            }
+            else
+            {
+                testBox.setContent(String.valueOf(0));
+            }
+            testList2.add(testBox);
+        }
+        board.add(testList2);
+
+        List<Box> testList3 = new ArrayList<Box>();
+        for (int j = 0; j < 10; j++)
+        {
+            Box testBox = new Box();
+            testBox.setOpen(true);
+            if (j == 8)
+            {
+                testBox.setContent(String.valueOf(1));
+            }
+            else if (j == 9)
+            {
+                testBox.setOpen(false);
+                testBox.setMine(true);
+            }
+            else
+            {
+                testBox.setContent(String.valueOf(0));
+            }
+            testList3.add(testBox);
+        }
+        board.add(testList3);
+
+        return board;
+    }
+    private boolean equalBoard(List<List<Box>> boardA, List<List<Box>> boardB)
+    {
+        if (boardA.size() != boardB.size())
+        {
+            return false;
+        }
+        else if (boardA.get(0).size() != boardB.get(0).size())
+        {
+            return false;
+        }
+        else
+        {
+            int i = 0;
+            boolean equals = true;
+
+            while ((i < boardA.size()) && (equals == true))
+            {
+                int j = 0;
+                while ((j < boardA.size()) && (equals == true))
+                {
+                    if (boardA.get(i).get(j).getOpen() != boardB.get(i).get(j).getOpen())
+                    {
+                        equals = false;
+                    }
+                    else if (boardA.get(i).get(j).getMine() != boardB.get(i).get(j).getMine())
+                    {
+                        equals = false;
+                    }
+                    else if (boardA.get(i).get(j).getContent().equals(boardB.get(i).get(j).getContent()) == false)
+                    {
+                        equals = false;
+                    }
+                    else
+                    {
+                        j = j + 1;
+                    }
+                }
+                i = i + 1;
+            }
+
+            return equals;
         }
     }
     @Test
@@ -348,21 +489,18 @@ public class BoardTest {
     }
     @Test
     public void openBoxANDopenBoxRecursive() throws IOException {
+        ViewMock view = new ViewMock();
         Board board = new BoardMockE();
         board.inicialitzateBoard(1);
 
-        BoardMockE boardmocke = new BoardMockE();
         List<List<Box>> expectedBoard = new ArrayList<List<Box>>();
-        expectedBoard = boardmocke.expectedOutput();
+        expectedBoard = expectedOutput();
 
-        ViewMock view = new ViewMock();
         List<Integer> coordinates = new ArrayList<Integer>();
         coordinates.add(1);
-        coordinates.add(1);
+        coordinates.add(3);
 
         board.makeMove(1,coordinates,1, view);
-        Assert.assertEquals(expectedBoard, board);
+        Assert.assertEquals(true, equalBoard(expectedBoard, board.getBoardList()));
     }
-
-
 }
