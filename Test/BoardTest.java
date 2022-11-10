@@ -348,22 +348,20 @@ public class BoardTest {
     }
     @Test
     public void openBoxANDopenBoxRecursive() throws IOException {
-        Board board = new Board();
+        Board board = new BoardMockE();
         board.inicialitzateBoard(1);
+
+        BoardMockE boardmocke = new BoardMockE();
+        List<List<Box>> expectedBoard = new ArrayList<List<Box>>();
+        expectedBoard = boardmocke.expectedOutput();
 
         ViewMock view = new ViewMock();
         List<Integer> coordinates = new ArrayList<Integer>();
-        coordinates.add(2);
-        coordinates.add(2);
-        int returnValue0 = board.makeMove(1,coordinates,1, view);
-        Assert.assertEquals(0, returnValue0);
-
-        board.inicialitzateBoard(1);
-        coordinates.clear();
-        coordinates.add(8);
         coordinates.add(1);
-        int returnValue1 = board.makeMove(1,coordinates,1, view);
-        Assert.assertEquals(0, returnValue1);
+        coordinates.add(1);
+
+        board.makeMove(1,coordinates,1, view);
+        Assert.assertEquals(expectedBoard, board);
     }
 
 
