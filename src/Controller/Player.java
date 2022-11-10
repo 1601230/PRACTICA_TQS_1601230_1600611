@@ -59,9 +59,13 @@ public class Player {
                 }
             }
 
-            if ((espacios == true) || (nickName.length() < 4))
+            if (nickName.length() < 4)
             {
                 System.out.println("ERROR: The nickname is less than 4 characters long!!!");
+                return -1;
+            }
+            else if (espacios == true)
+            {
                 return -1;
             }
             else if (hasNumber == true)
