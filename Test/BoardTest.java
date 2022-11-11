@@ -502,5 +502,14 @@ public class BoardTest {
 
         board.makeMove(1,coordinates,1, view);
         Assert.assertEquals(true, equalBoard(expectedBoard, board.getBoardList()));
+
+        coordinates.clear();
+        coordinates.add(3);
+        coordinates.add(1);
+
+        board.makeMove(1,coordinates,1, view);
+        Assert.assertEquals(true, equalBoard(expectedBoard, board.getBoardList()));
+
     }
+
 }
