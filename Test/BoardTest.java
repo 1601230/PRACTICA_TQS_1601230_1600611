@@ -476,7 +476,7 @@ public class BoardTest {
         coordinates.clear();
         coordinates.add(-5);
         coordinates.add(-5);
-        int returnValue11 = board.makeMove(1,coordinates,10, view);
+        int returnValue11 = board.makeMove(-1,coordinates,10, view);
         Assert.assertEquals(-1, returnValue11);
 
         coordinates.clear();
