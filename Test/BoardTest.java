@@ -467,25 +467,58 @@ public class BoardTest {
         int returnValue8 = board.makeMove(1,coordinates,1, view);
         Assert.assertEquals(1, returnValue8);
 
-        int returnValue9 = board.makeMove(7,coordinates,1, view);
+        int returnValue9 = board.makeMove(-1,coordinates,1, view);
         Assert.assertEquals(-1, returnValue9);
+
+        int returnValue10 = board.makeMove(7,coordinates,1, view);
+        Assert.assertEquals(-1, returnValue10);
 
         coordinates.clear();
         coordinates.add(-5);
         coordinates.add(-5);
-        int returnValue10 = board.makeMove(7,coordinates,10, view);
-        Assert.assertEquals(-1, returnValue10);
-
-        coordinates.add(1);
-        coordinates.add(1);
         int returnValue11 = board.makeMove(1,coordinates,10, view);
         Assert.assertEquals(-1, returnValue11);
 
         coordinates.clear();
-        coordinates.add(-5);
-        coordinates.add(-5);
-        int returnValue12 = board.makeMove(1,coordinates,1, view);
+        coordinates.add(40);
+        coordinates.add(40);
+        int returnValue12 = board.makeMove(1,coordinates,10, view);
         Assert.assertEquals(-1, returnValue12);
+
+        coordinates.clear();
+        coordinates.add(1);
+        coordinates.add(-5);
+        int returnValue13 = board.makeMove(1,coordinates,10, view);
+        Assert.assertEquals(-1, returnValue13);
+
+        coordinates.clear();
+        coordinates.add(1);
+        coordinates.add(40);
+        int returnValue14 = board.makeMove(1,coordinates,10, view);
+        Assert.assertEquals(-1, returnValue14);
+
+        coordinates.add(1);
+        coordinates.add(1);
+        int returnValue15 = board.makeMove(1,coordinates,10, view);
+        Assert.assertEquals(-1, returnValue15);
+
+        coordinates.clear();
+        coordinates.add(-5);
+        coordinates.add(-5);
+        int returnValue16 = board.makeMove(1,coordinates,1, view);
+        Assert.assertEquals(-1, returnValue16);
+
+        coordinates.clear();
+        coordinates.add(1);
+        coordinates.add(1);
+        int returnValue17 = board.makeMove(1,coordinates,-1, view);
+        Assert.assertEquals(-1, returnValue17);
+
+        coordinates.clear();
+        coordinates.add(1);
+        coordinates.add(1);
+        int returnValue18 = board.makeMove(1,coordinates,10, view);
+        Assert.assertEquals(-1, returnValue18);
     }
     @Test
     public void openBoxANDopenBoxRecursive() throws IOException {

@@ -117,6 +117,7 @@ public class View
         int option;
         System.out.println("Select an option from the menu: ");
         Scanner input= new Scanner(System.in);
+
         if (input.hasNextInt())
         {
             option = input.nextInt();
@@ -125,7 +126,6 @@ public class View
         {
             option = -1;
         }
-
         return option;
     }
     public String userInputNickName()

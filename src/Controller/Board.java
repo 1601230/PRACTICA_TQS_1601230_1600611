@@ -43,6 +43,7 @@ public class Board {
     {
         return listLevels.get(i).size();
     }
+    public List<List<Box>> getBoardList() { return board; }
     public void setPathListLevel(int i, String newPath)
     {
         for (int j = 0; j < listLevels.get(j).size(); j++)
@@ -50,7 +51,7 @@ public class Board {
             listLevels.get(i).set(j, newPath);
         }
     }
-    public List<List<Box>> getBoardList() { return board; }
+
     public int randomBoard(int level)
     {
         Random random = new Random();
