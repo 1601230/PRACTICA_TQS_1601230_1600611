@@ -36,7 +36,7 @@ public class PlayerTest {
         int valueReturn0 = player.setNickName("b5b"); //Limit esquerre, no valid
         Assert.assertEquals(-1, valueReturn0);
 
-        int valueReturn1 = player.setNickName(""); //no valid, evita loop testing simple
+        int valueReturn1 = player.setNickName(""); //no valid, evita executar els dos bucles
         Assert.assertEquals(-1, valueReturn1);
 
         int valueReturn2 = player.setNickName("aaa aa"); //no valid
@@ -57,25 +57,25 @@ public class PlayerTest {
         int valueReturn7 = player.setNickName("abab"); //Frontera, valid
         Assert.assertEquals(1, valueReturn7);
 
-        int valueReturn8 = player.setNickName(" abab"); //1 passada pel bucle
+        int valueReturn8 = player.setNickName(" abab"); //1 passada pel bucle de comprovació d'espais
         Assert.assertEquals(-1, valueReturn8);
 
-        int valueReturn9 = player.setNickName("a bab"); //2 passades pel bucle
+        int valueReturn9 = player.setNickName("a bab"); //2 passades pel bucle de comprovació d'espais
         Assert.assertEquals(-1, valueReturn9);
 
-        int valueReturn10 = player.setNickName("aba78 59bg"); //m passades pel bucle
+        int valueReturn10 = player.setNickName("aba78 59bg"); //m passades pel bucle de comprovació d'espais
         Assert.assertEquals(-1, valueReturn10);
 
-        int valueReturn11 = player.setNickName("1qwer"); //1 passada pel bucle
+        int valueReturn11 = player.setNickName("1qwer"); //1 passada pel bucle de comprovació de números
         Assert.assertEquals(-1, valueReturn11);
 
-        int valueReturn12 = player.setNickName("u8opuy"); //2 passades pel bucle
+        int valueReturn12 = player.setNickName("u8opuy"); //2 passades pel bucle de comprovació de números
         Assert.assertEquals(-1, valueReturn12);
 
-        int valueReturn13 = player.setNickName("abat6yubg"); //m passades pel bucle
+        int valueReturn13 = player.setNickName("abat6yubg"); //m passades pel bucle de comprovació de números
         Assert.assertEquals(-1, valueReturn13);
 
-        int valueReturn14 = player.setNickName("abaretubg"); //n passades pel bucle
+        int valueReturn14 = player.setNickName("abaretubg"); //n passades pels dos bucles
         Assert.assertEquals(1, valueReturn14);
     }
 
