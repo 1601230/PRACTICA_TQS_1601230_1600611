@@ -3,6 +3,9 @@ package Controller;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+The Play class contains the information needed to start a game.
+ */
 public class Play {
     private List<String> menuLevels = Arrays.asList(new String[]{"1. Easy", "2. Medium", "3. Hard"});
     protected Player player = null;

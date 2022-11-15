@@ -1,5 +1,9 @@
 package Controller;
 
+/*
+The Player class is the one that contains a player's information.
+The only attribute of this class is the name of the player that will later serve to generate ranking.
+ */
 public class Player {
     protected String nickName = null;
 

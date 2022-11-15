@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Random;
 import View.*;
 
+/* The Board class's functionality is to represent the minesweeper and
+contains the methods necessary to perform the game's main features.
+ */
 public class Board {
     protected List<List<Box>> board = new ArrayList<List<Box>>();
     private List<List<String>> listLevels = Arrays.asList(
@@ -135,7 +138,6 @@ public class Board {
             }
         }
     }
-
     public boolean win()
     {
         boolean win =  true;
@@ -165,7 +167,6 @@ public class Board {
 
         return win;
     }
-
     public void openBox(List<Integer> coordinates)
     {
         int i = coordinates.get(0) - 1;
@@ -312,7 +313,6 @@ public class Board {
             }
         }
     }
-
     public int makeMove(int move, List<Integer> coordinates, int level, View view) //-1: LOSE; 0: CONTINUE; 1: WIN
     {
         if ((move < 1) || (move > possibleMoves.size()))  { return -1; }

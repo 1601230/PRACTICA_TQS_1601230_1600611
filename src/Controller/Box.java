@@ -1,5 +1,9 @@
 package Controller;
 
+/*
+The functionality of the Box class is to represent a counter square, therefore
+contains all information related to a box.
+ */
 public class Box {
     private boolean mine = false;
     private boolean open = false;

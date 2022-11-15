@@ -8,6 +8,9 @@ import java.util.List;
 import View.*;
 import Module.*;
 
+/*
+Game class functionality is to control game logic.
+ */
 public class Game {
     public List<Integer> logicOfTheGame(Board board, Play play, View view)
     {
