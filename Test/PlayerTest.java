@@ -12,6 +12,20 @@ public class PlayerTest {
         Assert.assertEquals(null, valueReturn0);
     }
     @Test
+    public void isNumeric()
+    {
+        Player player = new Player();
+
+        boolean valueReturn0 = player.isNumeric("a");
+        Assert.assertEquals(false, valueReturn0);
+
+        boolean valueReturn1 = player.isNumeric("1");
+        Assert.assertEquals(true, valueReturn1);
+
+        boolean valueReturn2 = player.isNumeric("");
+        Assert.assertEquals(false, valueReturn2);
+    }
+    @Test
     public void setNickName()
     {
         Player player = new Player();
