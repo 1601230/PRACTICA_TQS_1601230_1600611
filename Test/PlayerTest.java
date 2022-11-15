@@ -16,14 +16,17 @@ public class PlayerTest {
     {
         Player player = new Player();
 
-        boolean valueReturn0 = player.isNumeric("a");
+        boolean valueReturn0 = player.isNumeric("a"); //valor no vàlid
         Assert.assertEquals(false, valueReturn0);
 
-        boolean valueReturn1 = player.isNumeric("1");
+        boolean valueReturn1 = player.isNumeric("1"); //valor vàlid
         Assert.assertEquals(true, valueReturn1);
 
-        boolean valueReturn2 = player.isNumeric("");
+        boolean valueReturn2 = player.isNumeric(""); //valor no vàlid
         Assert.assertEquals(false, valueReturn2);
+
+        boolean valueReturn3 = player.isNumeric("&"); //valor no vàlid
+        Assert.assertEquals(false, valueReturn3);
     }
     @Test
     public void setNickName()
