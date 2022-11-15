@@ -7,7 +7,7 @@ public class Player {
     {
         return nickName;
     }
-    public static boolean isNumeric(String cadena) {
+    public boolean isNumeric(String cadena) {
         boolean result;
 
         try {
