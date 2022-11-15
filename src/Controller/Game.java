@@ -43,7 +43,7 @@ public class Game {
             error = board.checkInputMove(returnValue.get(0));
         } while(error == -1);
 
-        if (returnValue.get(0) != 5)
+        if (returnValue.get(0) != 5) /*5 = exit game*/
         {
             returnValue.set(1, board.makeMove(returnValue.get(0), coordinates, play.getSelectedLevel(), view));
             if (board.win() ==  true)
@@ -55,7 +55,6 @@ public class Game {
 
         return returnValue;
     }
-
     public int playGame(Menu menu, View view) throws IOException {
         view.printMenu(menu);
         int error = 1;
@@ -97,6 +96,7 @@ public class Game {
                     returnValue.add(-1);
                     returnValue.add(0);
                     while ((returnValue.get(1) != 1) && (returnValue.get(0) != 5) && ((returnValue.get(1) != -2)))
+                    /* 1 = win; 5 = exit game; -2 = lose*/
                     {
                         returnValue = logicOfTheGame(board, play, view);
                     }

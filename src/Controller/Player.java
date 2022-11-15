@@ -34,7 +34,7 @@ public class Player {
         {
             boolean espacios = false;
             int i = 0;
-            while (( i < nickName.length()) && (espacios == false))
+            while (( i < nickName.length()) && (espacios == false)) /*Loop to check if the nickName has any space*/
             {
                 if(nickName.charAt(i) == ' ')
                 {
@@ -50,7 +50,7 @@ public class Player {
             boolean hasNumber = false;
             i = 0;
 
-            while (( i < nickName.length()) && (hasNumber == false))
+            while (( i < nickName.length()) && (hasNumber == false)) /*Loop to check if the nickName has any number*/
             {
                 String s = "" + nickName.charAt(i);
                 if (isNumeric(s) == true)

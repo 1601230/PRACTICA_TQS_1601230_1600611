@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import Controller.Play;
 import Module.DataBase;
+
+/*
+Ranking class is class that has the function of inserting and updating ranking with the new winner.
+ */
 public class Ranking {
     private String pathRanking = "src/Module/Ranking.txt";
     private List<String> ranking = new ArrayList<String>();
@@ -39,7 +43,7 @@ public class Ranking {
                     String[] rankingPartition;
                     int i = 0;
 
-                    while ((find == false) && (i < ranking.size())) {
+                    while ((find == false) && (i < ranking.size())) /*Loop to reorder ranking*/ {
                         rankingPartition = ranking.get(i).split(" ");
                         if (play.getTime() < Integer.parseInt(rankingPartition[2])) {
                             input = "1 " + play.getPlayer().getNickName() + " " + play.getTime() + " seconds;";
